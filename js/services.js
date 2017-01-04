@@ -1,4 +1,5 @@
-angular.module('spaceDogCockpit.services', [])
+
+// legacy to recycle
 
 .service('AuthService', function($http, CONSTANTS) {
 
@@ -285,14 +286,6 @@ angular.module('spaceDogCockpit.services', [])
         "Authorization":challengedAuthorizationHeader
       }
     })
-  }
-
-})
-
-.service('ErrorFormatService', function(){
-
-  this.format = function(e) {
-    return "Erreur ! "+ e.data.error.message + " ("+ e.data.status +")"
   }
 
 })

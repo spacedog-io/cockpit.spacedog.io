@@ -1,3 +1,6 @@
+angular.module('spaceDogCockpit.controllers', [])
+angular.module('spaceDogCockpit.services', [])
+
 angular.module('spaceDogCockpit', [
     'ui.router',
     'spaceDogCockpit.controllers',

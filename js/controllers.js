@@ -1,53 +1,5 @@
-angular.module('spaceDogCockpit.controllers', [])
 
-.controller('LoginCtrl', function($scope, AuthService, $rootScope, $state, ErrorFormatService) {
-
-  $scope.loginData = {
-		username:'',
-		password:'',
-    rememberMe:true
-	};
-
-  var loginSuccess = function(response, rememberMe){
-    if (response.data.credentials.roles.indexOf('admin') == -1) {
-      $scope.error = "Vous n'avez pas le rôle [admin] suffisant pour vous connecter"
-      $rootScope.hideLoading();
-    } else {
-      AuthService.setAccessToken(response.data.accessToken, rememberMe, $scope.loginData.username)
-      $rootScope.hideLoading();
-
-      // $state.go('app.home')
-      $state.go('app.requests')
-      // $state.go('app.admins')
-      // $state.go('app.admin', {id:"AVe-NE9mUm-r44yDpKG8", credential_id:"AVe-NE7hUm-r44yDpKG6" })
-    }
-  }
-
-  if (AuthService.hasAccessToken()) {
-    $rootScope.showLoading();
-    AuthService.tryLogin().then(function(response){
-      loginSuccess(response, true)
-    }, function(e){
-      $scope.error = ErrorFormatService.format(e);
-      AuthService.forgetAccessToken();
-      $rootScope.hideLoading();
-    })
-  }
-
-  $scope.login = function(){
-    $scope.error = undefined;
-    $rootScope.showLoading();
-    AuthService.login($scope.loginData).then(function(response){
-      loginSuccess(response, $scope.loginData.rememberMe)
-    }, function(e){
-      $rootScope.hideLoading();
-      $scope.error = ErrorFormatService.format(e);
-    })
-  }
-
-
-
-})
+// legacy to recycle
 
 .controller('AppCtrl', function($scope, AuthService, $rootScope){
 
