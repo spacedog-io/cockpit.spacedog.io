@@ -16,11 +16,11 @@ angular.module('spaceDogCockpit', [
 
         $stateProvider
 
-            .state('passwordReset', {
-              url:'/passwordReset/:credentialId/:passwordResetCode',
-              templateUrl : 'templates/passwordReset.html',
-              controller: 'PasswordResetCtrl'
-            })
+            // .state('passwordReset', {
+            //   url:'/passwordReset/:credentialId/:passwordResetCode',
+            //   templateUrl : 'templates/passwordReset.html',
+            //   controller: 'PasswordResetCtrl'
+            // })
 
             .state('login', {
                 url: '/',
@@ -34,49 +34,56 @@ angular.module('spaceDogCockpit', [
                 templateUrl: 'templates/app.html',
                 controller: 'AppCtrl'
             })
-            .state('app.home', {
-                url: '/home',
-                templateUrl: 'templates/home.html',
-                controller: 'HomeCtrl'
+            .state('app.schemas', {
+                url: '/schemas',
+                templateUrl: 'templates/schemas/list.html',
+                controller: 'SchemasListCtrl'
             })
-            .state('app.requests', {
-                url: '/requests',
-                templateUrl: 'templates/requests.html',
-                controller: 'RequestsCtrl'
-            })
-            .state('app.admins', {
-                url: '/admins',
-                templateUrl: 'templates/admin/admins.html',
-                controller: 'AdminsCtrl'
-            })
-            .state('app.new_admin', {
-                url: '/new_admin',
-                templateUrl: 'templates/admin/new_admin.html',
-                controller: 'NewAdminCtrl'
-            })
-            .state('app.admin', {
-                url: '/admin/:id/:credential_id',
-                templateUrl: 'templates/admin/admin.html',
-                controller: 'AdminCtrl'
-            })
-            .state('app.clients', {
-                url: '/clients',
-                templateUrl: 'templates/client/clients.html',
-                controller: 'ClientsCtrl'
-            })
-            .state('app.new_client', {
-                url: '/new_client',
-                templateUrl: 'templates/client/new_client.html',
-                controller: 'NewClientCtrl'
-            })
-            .state('app.client', {
-                url: '/client/:id',
-                params: {
-                    value: null
-                },
-                templateUrl: 'templates/client/client.html',
-                controller: 'ClientCtrl'
-            })
+
+
+            // .state('app.home', {
+            //     url: '/home',
+            //     templateUrl: 'templates/home.html',
+            //     controller: 'HomeCtrl'
+            // })
+            // .state('app.requests', {
+            //     url: '/requests',
+            //     templateUrl: 'templates/requests.html',
+            //     controller: 'RequestsCtrl'
+            // })
+            // .state('app.admins', {
+            //     url: '/admins',
+            //     templateUrl: 'templates/admin/admins.html',
+            //     controller: 'AdminsCtrl'
+            // })
+            // .state('app.new_admin', {
+            //     url: '/new_admin',
+            //     templateUrl: 'templates/admin/new_admin.html',
+            //     controller: 'NewAdminCtrl'
+            // })
+            // .state('app.admin', {
+            //     url: '/admin/:id/:credential_id',
+            //     templateUrl: 'templates/admin/admin.html',
+            //     controller: 'AdminCtrl'
+            // })
+            // .state('app.clients', {
+            //     url: '/clients',
+            //     templateUrl: 'templates/client/clients.html',
+            //     controller: 'ClientsCtrl'
+            // })
+            // .state('app.new_client', {
+            //     url: '/new_client',
+            //     templateUrl: 'templates/client/new_client.html',
+            //     controller: 'NewClientCtrl'
+            // })
+            // .state('app.client', {
+            //     url: '/client/:id',
+            //     params: {
+            //         value: null
+            //     },
+            //     templateUrl: 'templates/client/client.html',
+            //     controller: 'ClientCtrl'
+            // })
 
         if (location.hash.indexOf('passwordReset') == -1) {
           location.hash = '/';

@@ -1,7 +1,7 @@
 
 # TODO : update for spacedog
 
-# all: clean sass dist dog
+all: clean sass dist dog
 
 build: clean sass dist
 
@@ -19,6 +19,7 @@ dist:
 	cp -R styles dist/
 	cp -R templates dist/
 	cp index.html dist/
+	cp spacedog.min.js dist/
 
-# dog:
-	# dog sync -b suezcmdrec -l suezcmdrec -p www -s dist/
+dog:
+	dog sync -b spacepitdev -l spacewouf -p www -s dist/
