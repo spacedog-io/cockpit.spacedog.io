@@ -1,0 +1,32 @@
+<h1>Liste des administrateurs</h1>
+
+<div class="actions">
+  <a class="btn btn-primary" ui-sref="app.new_admin">Créer un nouvel administrateur</a>
+</div>
+
+<p class="bg-danger" ng-if="error">{{error}}</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="a in admins">
+      <!-- <th scope="row">{{r.meta.id}}</th> -->
+      <td>{{a.firstname}}</td>
+      <td>{{a.lastname}}</td>
+      <td>
+        <ul>
+          <li><a ui-sref="app.admin({id:a.meta.id, credential_id:a.credential_id})">Voir / modifier</a></li>
+          <li><a ng-click="delete(a)">Supprimer</a></li>
+        </ul>
+      </td>
+      <!-- <td>Type : {{r.requestType}}<br/>Volume : {{r.tipperVolume}}<br/>Déchet : {{r.wasteType}}</td> -->
+    </tr>
+  </tbody>
+</table>

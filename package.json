@@ -1,0 +1,10 @@
+{
+  "name": "cockpit.spacedog.io",
+  "version": "0.0.0",
+  "description": "Spacedog cockpit web app",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-webserver": "^0.9.1"
+  }
+}

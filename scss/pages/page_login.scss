@@ -1,0 +1,193 @@
+
+.login {
+
+  min-height:100vh;
+  display: flex;
+  align-items: center;
+
+  .form-signin {
+    background-color:rgba(33,33,33,0.5);
+    max-width: 330px;
+    min-width: 310px;
+    padding: 15px;
+    margin: 0 auto;
+  }
+  .form-signin .checkbox {
+    margin-bottom: 10px;
+  }
+  h2 {
+    margin-top:0;
+    margin-bottom:20px;
+  }
+  .form-signin .checkbox {
+    font-weight: normal;
+  }
+  .form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+@include keyframes(spacemouve-first) {
+  0%   { 
+    opacity:0;
+    transform: translate3d(0,-70vw,300px) scale3d(5,5,5); 
+  }
+  100% { 
+    opacity:0.4;
+    transform: translate3d(0,-70vw,0) scale3d(4,4,4); 
+  }
+}
+
+
+@include keyframes(spacemouve-second) {
+  0%   { 
+    opacity:0.1;
+    transform: translate3d(-40vw,40vw,0) scale3d(6,6,6); 
+  }
+  100% { 
+    opacity:0.4;
+    transform: translate3d(40vw,40vw,0) scale3d(6,6,6); 
+  }
+}
+@include keyframes(spacemouve-third) {
+  0%   { 
+    opacity:0.2;
+    transform: translate3d(200vw,-200vw,0) scale3d(7,7,7); 
+  }
+  100% { 
+    opacity:0.4;
+    transform: translate3d(240vw,-140vw,0) scale3d(6,6,6); 
+  }
+}
+@include keyframes(spacemouve-fourth) {
+  0%   { 
+    opacity:0.2;
+    transform: translate3d(-240vw,-200vw,0) scale3d(6,6,6); 
+  }
+  100% { 
+    opacity:0.5;
+    transform: translate3d(-200vw,-100vw,0) scale3d(5,5,5); 
+  }
+}
+@include keyframes(spacemouve-fifth) {
+  0%   { 
+    opacity:0.3;
+    transform: rotate3d(0,1,0,50deg) translate3d(-20vw,200vw,0) scale3d(6,6,6);
+
+  }
+  100% { 
+    opacity:0.8;
+    transform: rotate3d(0,1,0,-20deg) translate3d(-20vw,100vw,0) scale3d(5,5,5); 
+  }
+}
+@include keyframes(spacemouve-sixth) {
+  0%   { 
+    opacity:0.5;
+    transform: rotate3d(0,0,1,50deg) translate3d(40vw,-20vw,0) scale3d(8,8,8);
+
+  }
+  100% { 
+    opacity:0.7;
+    transform: rotate3d(0,0,1,-20deg) translate3d(40vw,-20vw,0) scale3d(5,5,5); 
+  }
+}
+
+@include keyframes(spacemouve-sixth-above) {
+  0%   { 
+    opacity:0.4;
+    transform: translate3d(-50vw,0,0) scale3d(-2,-2,-2);
+
+  }
+  100% { 
+    opacity:0;
+    transform: translate3d(-100vw,0,0) scale3d(-2,-2,-2); 
+  }
+}
+
+@include keyframes(spacemouve-final) {
+  0%   { 
+    opacity:0.4;
+    transform: rotate3d(0,1,1,90deg) translate3d(0,50vw,0) scale3d(9,9,9);
+
+  }
+  80% { 
+    opacity:0.7;
+    transform: rotate3d(0,1,1,0) translate3d(0,0,0) scale3d(0.3,0.3,0.3); 
+  }
+  100% { 
+    opacity:0.8;
+    transform: rotate3d(0,1,1,0) translate3d(0,0,0) scale3d(0.5, 0.5, 0.5); 
+  }
+}
+
+
+$woufsize:120vw;
+$tileOffset:12vw;
+
+@mixin spacewouf () {
+  opacity:0.7;
+  width:$woufsize;
+  height:$woufsize;
+  background-image:url('../img/spacedog.png');
+  background-size:contain;
+  background-repeat:no-repeat;
+  position:fixed;
+  margin-top:(-1 * $woufsize / 2);
+  margin-left:(-1 * $woufsize / 2);
+  z-index:-1;
+  top:50%;
+  left:50%;
+  padding:2vw;
+}
+
+#spacewouf {
+  @include spacewouf();
+  @include animation(
+    'spacemouve-first       8s  1               linear',
+    'spacemouve-second      3s  1         8s    linear',
+    'spacemouve-third       2s  1         11s   linear',
+    'spacemouve-fourth      3s  1         13s   linear',
+    'spacemouve-fifth       4s  1         16s   linear',
+    'spacemouve-sixth       5s  1         20s   linear',
+    'spacemouve-final       28s 1         25s   ease-out');
+
+  opacity:0.8;
+  transform: rotate3d(0,1,1,0) translate3d(0,0,0) scale3d(0.5, 0.5, 0.5); 
+}
+
+#spacewoof-bis {
+  @include spacewouf();
+  opacity:0;
+  @include animation(
+    'spacemouve-sixth-above 5s  1      20s      ease-in');
+}
+
+
+
+
+
+
+
+
+
+
+

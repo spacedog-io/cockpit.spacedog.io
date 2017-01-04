@@ -1,0 +1,61 @@
+<h1>Fiche administrateur : {{adminData.firstname}} {{adminData.lastname}}</h1>
+
+<p class="bg-danger" ng-if="error">{{error}}</p>
+
+<h2>Modifier les données</h2>
+
+<form ng-submit="submitData()">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="firstname">Prénom</label>
+        <input required ng-model="adminData.firstname" type="text" class="form-control" id="firstname" placeholder="Prénom">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="lastname">Nom</label>
+        <input required ng-model="adminData.lastname" type="text" class="form-control" id="lastname" placeholder="Nom">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="username">Nom d'utilisateur (e-mail)</label>
+        <input required ng-model="adminData.username" type="email" class="form-control" id="username" placeholder="Nom d'utilisateur (login)">
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-default">Valider</button>
+
+</form>
+
+
+<h2>Changer le mot de passe</h2>
+
+
+<form ng-submit="submitPassword()">
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="password">Nouveau mot de passe</label>
+        <input required ng-model="newPasswordData.password" type="password" class="form-control" id="password" placeholder="Mot de passe">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="passwordConfirmation">Confirmation du nouveau mot de passe</label>
+        <input required ng-model="newPasswordData.passwordConfirmation" type="password" class="form-control" id="passwordConfirmation" placeholder="Confirmation du mot de passe">
+      </div>
+    </div>
+  </div>
+
+
+  <button type="submit" class="btn btn-default">Valider</button>
+
+</form>

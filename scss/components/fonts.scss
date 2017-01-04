@@ -1,0 +1,23 @@
+
+@font-face{
+  font-family:"DIN-Regular";
+  src:url("fonts/DINNextW01Regular.woff2") format("woff2");
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: normal !important;
+}
+@font-face{
+  font-family:"DIN-Medium";
+  src:url("fonts/DINNextW01Medium.woff2") format("woff2");
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: normal !important;
+}
+
+@font-face{
+  font-family:"DIN-MediumCond";
+  src:url("fonts/DINNextW01-CondensedMed.woff2") format("woff2");
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: normal !important;
+}

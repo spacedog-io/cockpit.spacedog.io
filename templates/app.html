@@ -1,0 +1,19 @@
+
+<div class="container-fluid" id="app-container">
+
+
+  <nav>
+    <h1>SUEZ Commande en ligne <em>Backoffice</em></h1>
+    <ul>
+      <li><a ui-sref="app.requests">Demandes des clients</a></li>
+      <li><a ui-sref="app.admins">Administrateurs</a></li>
+      <li><a ui-sref="app.clients">Clients</a></li>
+    </ul>
+    <a id="logout" ng-click="logout()"/>Déconnexion</a>
+  </nav>
+
+  <div id="app-content">
+    <ui-view></ui-view>
+  </div>
+
+</div>

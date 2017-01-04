@@ -1,0 +1,125 @@
+<h1>Liste des demandes</h1>
+
+<p class="bg-danger" ng-if="error">{{error}}</p>
+
+<div class="actions">
+
+  <div class="form-group">
+    <label>Type de demande
+      <select ng-model="filtersData.requestType" class="form-control btn-primary">
+        <option value="">(Aucun type de demande)</option>
+        <option value="0">Vidage/rotation d'une benne</option>
+        <option value="1">Dépôt d'une benne</option>
+        <option value="2">Retrait d'une benne</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label>Matériel
+      <select ng-model="filtersData.wasteType" class="form-control btn-primary">
+        <option value="">(Aucun matériel)</option>
+        <option value="0">DIB</option>
+        <option value="1">Gravat</option>
+        <option value="2">Ferraille</option>
+        <option value="3">Bois</option>
+        <option value="4">Carton / Film plastique</option>
+        <option value="5">Amiante</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label>Date souhaitée<input ng-model="filtersData.desiredTime" class="form-control btn-primary" type="date" /></label>
+  </div>
+
+  <div class="form-group">
+    <label>Client
+      <select ng-model="filtersData.desiredClient" class="form-control btn-primary">
+        <option value="">(Aucun client)</option>
+        <option ng-repeat="c in clientsList track by $index" value="{{c.number}}">{{c.name}}</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label>Traité
+      <select ng-model="filtersData.desiredProcess" class="form-control btn-primary">
+        <option value="">(Aucun filtre)</option>
+        <option value="true">Oui</option>
+        <option value="false">Non</option>
+      </select>
+    </label>
+  </div>
+
+</div>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Date de réception de la demande</th>
+      <th>Client</th>
+      <th>Chantier et zone</th>
+      <th>Délai souhaité</th>
+      <th>Demande</th>
+      <th>Commentaire</th>
+      <th>Traité</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="r in requests">
+
+      <th scope="row">
+        {{r.meta.createdAt | date : "dd/MM/yyyy"}}<br/>
+        {{r.meta.createdAt | date : "à HH:mm"}}<br/>
+        <p class="requestDeletedDisplay" ng-show="r.cancelled">ANNULÉE</p> </th>
+
+      <td>
+          <p>{{r.client.name}}</p>
+          <p>{{r.client.lastname}}</p>
+          <p>{{r.client.firstname}}</p>
+          <p>{{r.client.tel}}</p>
+          <p>{{r.client.email}}</p>
+      </td>
+      <td>{{r.construction.name}}<br/>
+          {{r.construction.street}}<br/>
+          {{r.construction.city}}<br/>
+          {{r.zone.name}}<br/>
+          <a ng-if="r.zone.location.lon && r.zone.location.lat" target="_blank" href="http://maps.google.com/maps?q={{r.zone.location.lat}},{{r.zone.location.lon}}">(géolocalisation)</a>
+      </td>
+      <td>
+        {{r.desiredTime.date | date:'dd/MM/yyyy'}}
+
+        <div ng-if="r.desiredTime.period == 0">N'importe quand</div>
+        <div ng-if="r.desiredTime.period == 1">Matin</div>
+        <div ng-if="r.desiredTime.period == 2">Après-midi</div>
+      </td>
+      <td>
+        <div ng-if="r.requestType == 0">Vidage/rotation</div>
+        <div ng-if="r.requestType == 1">Dépôt</div>
+        <div ng-if="r.requestType == 2">Retrait</div>
+
+        <div ng-if="r.wasteType==0">DIB</div>
+        <div ng-if="r.wasteType==1">Gravat</div>
+        <div ng-if="r.wasteType==2">Ferraille</div>
+        <div ng-if="r.wasteType==3">Bois</div>
+        <div ng-if="r.wasteType==4">Carton / Film plastique</div>
+
+        <div ng-if="r.tipperVolume==0">7/8m<sup>3</sup></div>
+        <div ng-if="r.tipperVolume==1">10m<sup>3</sup></div>
+        <div ng-if="r.tipperVolume==2">15m<sup>3</sup></div>
+        <div ng-if="r.tipperVolume==3">30m<sup>3</sup></div>
+      </td>
+      <td>
+        {{r.comment ? r.comment : "(néant)"}}
+      </td>
+      <td>
+        <input type="checkbox" ng-model="r.processed" ng-change="updateProcessed(r)" ng-disabled="processedDisabled">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="btn btn-primary" ng-click="loadMore()" ng-disabled="loadingNextDisabled">{{ nextPageAvailable ? "Charger la page suivante" : "Fin des données selon les filtres actuels" }} </div>

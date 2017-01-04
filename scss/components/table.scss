@@ -1,0 +1,18 @@
+table {
+  font-size:80%;
+
+  ul  {
+    list-style: none;
+    margin:0;
+    padding:0;
+    a {
+      color:lighten($suez-blue,15%);
+      cursor: pointer;
+      &:hover {
+        background-color:$suez-green;
+        color:$suez-blue;
+        text-decoration: none;
+      }
+    }
+  }
+}

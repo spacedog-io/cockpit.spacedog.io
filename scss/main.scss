@@ -1,0 +1,65 @@
+
+$suez-blue:#030f40;
+$suez-green:#aadc14;
+$suez-grey:#d4d4d4;
+
+$darkblue:rgb(0,0,20);
+$brand-primary:rgb(255,200,0);
+$btn-primary-color:$suez-blue;
+$state-danger-bg:#bf4747;
+
+@import "_bootstrap";
+
+// TODO : refactor in mixins.scss
+@mixin animation($animate...) {
+    $max: length($animate);
+    $animations: '';
+
+    @for $i from 1 through $max {
+        $animations: #{$animations + nth($animate, $i)};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+    -webkit-animation: $animations;
+    -moz-animation:    $animations;
+    -o-animation:      $animations;
+    animation:         $animations;
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@import "components/fonts";
+@import "components/loadingOverlay";
+@import "components/passwordOverlay";
+@import "components/table";
+@import "components/error";
+
+@import "pages/app";
+@import "pages/body";
+@import "pages/page_login";
+
+// FIX chelou
+.row:after {
+  clear:none !important;
+}
+
+// le classique
+.clear {
+  clear: both;
+  height: 0; overflow: hidden; /* Précaution pour IE 7 */
+}

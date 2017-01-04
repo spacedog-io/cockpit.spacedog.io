@@ -1,0 +1,21 @@
+{
+  "name": "cockpit.spacedog.io",
+  "homepage": "https://github.com/spacedog-io/cockpit.spacedog.io",
+  "authors": [
+    "Frédéric Marcel Falliere <frederic.falliere@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "gentelella": "^1.3.0",
+    "bootstrap-sass": "^3.3.7"
+  }
+}
