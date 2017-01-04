@@ -1,6 +1,6 @@
 angular.module('spaceDogCockpit.controllers')
 
-.controller('LoginCtrl', function($scope, $rootScope, $state) {
+.controller('LoginCtrl', function($scope, $rootScope, $state, ErrorFormatService) {
 
   $scope.loginData = {
     username:'',
@@ -45,6 +45,8 @@ angular.module('spaceDogCockpit.controllers')
 
       loginSuccess(data)
     }
+
+    $scope.$apply()
   }
 
 

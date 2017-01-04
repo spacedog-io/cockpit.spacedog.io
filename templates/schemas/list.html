@@ -1,7 +1,11 @@
-<h1>Liste des clients</h1>
+<div class="head">
 
-<div class="actions">
-    <a class="btn btn-primary" ui-sref="app.new_client">Créer un nouveau client</a>
+    <h1>{{backendId()}} <em>//</em> Schémas</h1>
+
+    <div class="actions">
+        <a class="btn btn-primary" ui-sref="app.new_client">Créer un nouveau client</a>
+    </div>
+
 </div>
 
 <p class="bg-danger" ng-if="error">{{error}}</p>
