@@ -9,6 +9,9 @@
         <div>
           <a ui-sref="app.schemas">Schémas</a>
 
+          <ul class="sublist">
+            <li ng-repeat="schema in mainStore.schemas track by schema.type">{{schema.type}}</li>
+          </ul>
         </div>
         </li>
     </ul>

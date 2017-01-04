@@ -10,27 +10,6 @@
 
 <p class="bg-danger" ng-if="error">{{error}}</p>
 
-<table class="table">
-    <thead>
-    <tr>
-        <th>Nom</th>
-        <th>Numéro</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <tr ng-repeat="c in clients">
-        <!-- <th scope="row">{{r.meta.id}}</th> -->
-        <td>{{c.name}}</td>
-        <td>{{c.number}}</td>
-        <td>
-            <ul>
-                <li><a ui-sref="app.client({id:c.meta.id})">Voir / modifier</a></li>
-                <li><a ng-click="removeData(c)">Supprimer</a></li>
-            </ul>
-        </td>
-        <!-- <td>Type : {{r.requestType}}<br/>Volume : {{r.tipperVolume}}<br/>Déchet : {{r.wasteType}}</td> -->
-    </tr>
-    </tbody>
-</table>
+<ul>
+    <li ng-repeat="schema in mainStore.schemas track by schema.type">{{schema.type}}</li>
+</ul>
