@@ -1,0 +1,21 @@
+<div class="spacedog-schema">
+    
+    <h4>Type</h4>
+    <div class="type">{{schema.type}}</div>
+
+    <h4>Fields</h4>
+    <ul>
+        <li ng-repeat="field in schema.fields">
+            <div class="fieldname">{{field.fieldname}}</div>
+
+            <ul>
+                <li ng-repeat="prop in Utils.keys(field.fielddata)">
+                    <div class="prop-key">{{prop}}</div>
+                    <div class="prop-value">{{field.fielddata[prop]}}</div>
+                </li>
+            </ul>
+
+        </li>
+    </ul>
+
+</div>

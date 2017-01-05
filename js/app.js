@@ -1,9 +1,11 @@
 angular.module('spaceDogCockpit.controllers', [])
+angular.module('spaceDogCockpit.directives', [])
 angular.module('spaceDogCockpit.services', [])
 
 angular.module('spaceDogCockpit', [
     'ui.router',
     'spaceDogCockpit.controllers',
+    'spaceDogCockpit.directives',
     'spaceDogCockpit.services',
     'spaceDogCockpit.constants'
 ])
@@ -39,6 +41,12 @@ angular.module('spaceDogCockpit', [
                 templateUrl: 'templates/schemas/list.html',
                 controller: 'SchemasListCtrl'
             })
+            .state('app.schema', {
+                url: '/schema/:type',
+                templateUrl: 'templates/schemas/detail.html',
+                controller: 'SchemaCtrl'
+            })
+
 
 
             // .state('app.home', {

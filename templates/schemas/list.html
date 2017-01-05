@@ -9,7 +9,8 @@
 </div>
 
 <p class="bg-danger" ng-if="error">{{error}}</p>
-
 <ul>
-    <li ng-repeat="schema in mainStore.schemas track by schema.type">{{schema.type}}</li>
+    <li ng-repeat="schema in mainStore.schemas track by schema.type">
+        <space-schema schema="schema"></space-schema>
+    </li>
 </ul>

@@ -6,7 +6,12 @@ angular.module('spaceDogCockpit.controllers')
         $scope.mainStore.schemas = Object.keys(data).map(function(k){
             return {
                 type:k,
-                schema:data[k]
+                fields: Object.keys(data[k]).map(function(l){
+                    return {
+                        fieldname : l,
+                        fielddata : data[k][l]
+                    }
+                })
             }
         })        
         $scope.$apply();
