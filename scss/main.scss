@@ -10,44 +10,13 @@ $state-danger-bg:#bf4747;
 
 @import "_bootstrap";
 
-// TODO : refactor in mixins.scss
-@mixin animation($animate...) {
-    $max: length($animate);
-    $animations: '';
-
-    @for $i from 1 through $max {
-        $animations: #{$animations + nth($animate, $i)};
-
-        @if $i < $max {
-            $animations: #{$animations + ", "};
-        }
-    }
-    -webkit-animation: $animations;
-    -moz-animation:    $animations;
-    -o-animation:      $animations;
-    animation:         $animations;
-}
-
-@mixin keyframes($animationName) {
-    @-webkit-keyframes #{$animationName} {
-        @content;
-    }
-    @-moz-keyframes #{$animationName} {
-        @content;
-    }
-    @-o-keyframes #{$animationName} {
-        @content;
-    }
-    @keyframes #{$animationName} {
-        @content;
-    }
-}
-
 @import "components/fonts";
 @import "components/loadingOverlay";
 @import "components/passwordOverlay";
 @import "components/table";
 @import "components/error";
+@import "components/mixins";
+@import "components/list";
 @import "components/spaceSchema";
 
 @import "pages/app";

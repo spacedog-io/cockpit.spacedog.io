@@ -1,7 +1,9 @@
 <div class="spacedog-schema">
     
     <h4>Type</h4>
-    <div class="type">{{schema.type}}</div>
+    <div class="type">
+        <a ui-sref="app.schema({type:schema.type})">{{schema.type}}</a>
+    </div>
 
     <h4>Fields</h4>
     <ul>

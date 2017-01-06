@@ -1,0 +1,14 @@
+<div class="spacedog-field">
+    
+    <div class="field">{{field}}</div>
+
+    <div class="value" ng-switch on="field">
+
+        <div ng-switch-when="meta">
+            <space-tuple tuple="value"></space-tuple>
+        </div>
+
+        <div ng-switch-default>{{value}}</div>
+
+    </div>
+</div>

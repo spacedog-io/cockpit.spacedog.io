@@ -1,0 +1,11 @@
+<div class="spacedog-tuple">
+
+    <div class="spacedog-tuple-item"
+         ng-repeat="prop in Utils.keys(tuple)"
+         ng-if="prop != '$$hashKey'">
+
+         <space-field field="prop" value="tuple[prop]"></space-field>
+
+    </div>
+        
+</div>

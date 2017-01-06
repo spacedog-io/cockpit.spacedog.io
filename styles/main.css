@@ -5946,6 +5946,64 @@ p.bg-success {
   padding: 8px 14px;
   color: #030f40; }
 
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .list li {
+    margin: 0;
+    margin-bottom: .3rem;
+    padding: 0; }
+
+.spacedog-schema ul {
+  list-style: none; }
+
+.spacedog-schema * {
+  display: inline-block; }
+
+.spacedog-tuple {
+  display: block;
+  overflow: hidden;
+  max-height: 41px;
+  transition: max-height 100ms ease-out, margin-bottom 100ms ease-out;
+  width: 100%;
+  border-left: 1px solid #665000;
+  position: relative; }
+  .spacedog-tuple .spacedog-tuple-item {
+    display: inline-block; }
+  .spacedog-tuple::after {
+    content: '...';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #806400; }
+  .spacedog-tuple:hover {
+    max-height: none;
+    margin-bottom: 5rem; }
+    .spacedog-tuple:hover:after {
+      content: ' '; }
+  .spacedog-tuple .spacedog-tuple {
+    max-height: none !important;
+    margin-bottom: initial !important; }
+    .spacedog-tuple .spacedog-tuple:after {
+      content: ' '; }
+
+.spacedog-field {
+  border: 1px solid #665000;
+  border-left: 0;
+  padding: .5rem 1.2rem;
+  margin: .1rem;
+  margin-left: 0;
+  display: inline-block; }
+  .spacedog-field .field {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Source Code Pro,Courier New,monospace;
+    color: #997800; }
+  .spacedog-field .value {
+    display: inline-block; }
+
 #app-container {
   padding: 0;
   min-height: 100vh;
@@ -5959,6 +6017,7 @@ p.bg-success {
     float: left;
     font-size: 18px;
     border-right: 1px solid #ffc800;
+    position: fixed;
     -moz-box-shadow: 4px 0px 2px 2px rgba(255, 200, 0, 0.1);
     -webkit-box-shadow: 4px 0px 2px 2px rgba(255, 200, 0, 0.1);
     -o-box-shadow: 4px 0px 2px 2px rgba(255, 200, 0, 0.1);
@@ -5966,29 +6025,51 @@ p.bg-success {
     filter: progid:DXImageTransform.Microsoft.Shadow color=rgba(255, 200, 0, 0.1), Direction=90, Strength=20; }
     #app-container nav h1 {
       padding: 1rem;
+      height: 7rem;
       margin: 0;
       display: block;
-      font-size: 23px;
+      font-size: 20px;
       text-align: left;
       font-family: 'Orbitron', sans-serif;
-      border-bottom: 1px solid #ffc800;
-      color: #ffc800; }
+      color: #ffc800;
+      background-color: #262644; }
       #app-container nav h1 em {
         color: #aadc14;
         font-style: normal;
         display: block; }
+      #app-container nav h1 img {
+        display: inline-block;
+        width: 5rem; }
+    #app-container nav h2 {
+      text-align: center;
+      text-align: center;
+      background-color: #414165;
+      margin: 0;
+      font-size: 1em;
+      height: 4rem;
+      line-height: 4rem; }
     #app-container nav ul {
-      margin-top: 10px;
+      margin: 0;
       list-style: none;
-      padding: 0; }
+      padding: 0;
+      background-color: #5b5b77;
+      padding-bottom: 1rem;
+      padding-top: 1rem; }
+      #app-container nav ul.sublist {
+        font-size: 13px;
+        font-weight: 100;
+        line-height: 8px;
+        margin-left: 15px; }
+        #app-container nav ul.sublist a:before {
+          content: ". "; }
       #app-container nav ul li a {
         display: block;
         cursor: pointer;
         color: white;
         padding: 8px 12px; }
         #app-container nav ul li a:before {
-          content: ">";
-          color: #aadc14; }
+          content: "> ";
+          color: #ffc800; }
         #app-container nav ul li a:hover {
           text-decoration: none;
           background-color: rgba(255, 255, 255, 0.1); }
@@ -6011,27 +6092,42 @@ p.bg-success {
     #app-container #app-content .head {
       margin: -2rem;
       padding: 2rem;
-      background-color: #0e0b01;
-      color: white;
-      margin-bottom: 1rem; }
-    #app-container #app-content h1 {
-      margin-top: 0;
+      padding-right: 0;
+      height: 9rem;
+      background-color: white; }
+      #app-container #app-content .head h1 {
+        display: inline-block; }
+      #app-container #app-content .head .actions {
+        float: right;
+        color: #666666;
+        font-size: 13px;
+        text-decoration: underline;
+        cursor: pointer;
+        line-height: 2rem;
+        margin: .5rem 2rem; }
+        #app-container #app-content .head .actions img {
+          width: 2rem;
+          vertical-align: sub; }
+      #app-container #app-content .head .pagination {
+        float: right;
+        color: #666666;
+        font-size: 13px;
+        cursor: pointer;
+        line-height: 2rem;
+        display: block;
+        margin: .5rem 2rem; }
+    #app-container #app-content .subhead {
+      margin: -2rem;
+      padding: 2rem;
       margin-bottom: 1rem;
-      font-size: 1em; }
-      #app-container #app-content h1 em {
-        color: #ffc800;
-        margin-right: 9px; }
+      background-color: #e6e6e6; }
+    #app-container #app-content h1 {
+      margin: 0;
+      font-size: 22px; }
     #app-container #app-content h2 {
       border-bottom: 2px solid #aadc14;
       margin-top: 4rem;
       margin-bottom: 2rem; }
-    #app-container #app-content .actions {
-      margin-bottom: 2rem; }
-      #app-container #app-content .actions select {
-        width: auto; }
-      #app-container #app-content .actions .form-group {
-        display: inline-block;
-        margin-bottom: 0; }
 
 body {
   background-color: #000014;

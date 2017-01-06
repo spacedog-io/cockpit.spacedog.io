@@ -1,18 +1,16 @@
 angular.module('spaceDogCockpit.directives')
 
-.directive('spaceSchema', function() {
+.directive('spaceTuple', function() {
     return {
-        template : '<div ng-include="\'/templates/spaceSchema.html\'"></div>',
+        template : '<div ng-include="\'/templates/spaceTuple.html\'"></div>',
         restrict: 'E',
         scope: {
-            schema:'='
+            tuple:'='
         },
         link: function (scope, element, attrs) {
             scope.Utils = {
                 keys : Object.keys
             }
-
-            console.log("scope.schema", scope.schema)
         }
     }
 })

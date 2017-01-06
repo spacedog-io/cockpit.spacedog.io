@@ -1,10 +1,34 @@
 <div class="head">
 
-    <h1>{{backendId()}} <em>//</em> Schéma <em>//</em> {{schema.type}}</h1>
+    <h1>{{schema.type}}</h1>
+
+    <div class="pagination">
+
+        Showing {{from() +1 }} - {{Math.min( from() + size, data.total ) }} of {{data.total}}
+
+        <div class="btn btn-default" ng-disabled="!isPrevPageAvailable()" ng-click="prevPage()"><</div>
+        <div class="btn btn-default" ng-disabled="!isNextPageAvailable()" ng-click="nextPage()">></div>
+
+    </div>
+
+    <div class="actions">
+        <div class="action">
+            <img src="img/icon-plus.svg" />
+            <span>Add a new object</span>
+        </div>
+    </div>
 
 </div>
 
-<space-schema schema="schema"></space-schema>
+<div class="subhead">
+    <space-schema schema="schema"></space-schema>
+</div>
 
 <p class="bg-danger" ng-if="error">{{error}}</p>
 
+
+<ul class="list">
+    <li ng-repeat="item in data.results">
+        <space-tuple tuple="item"></space-tuple>
+    </li>
+</ul>

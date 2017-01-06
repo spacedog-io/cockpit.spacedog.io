@@ -11,6 +11,8 @@ angular.module('spaceDogCockpit.controllers')
 
   var loginSuccess = function(data){
 
+    $rootScope.backendId = $scope.loginData.backendId
+
     if (data.credentials.roles.indexOf('admin') == -1) {
 
       $scope.error = "Vous n'avez pas le rôle [admin] suffisant pour vous connecter"
@@ -19,7 +21,8 @@ angular.module('spaceDogCockpit.controllers')
 
     } else {
 
-      $state.go('app.schemas')
+      // $state.go('app.schemas')
+      $state.go('app.schema', {"type":"agency"})
 
       $rootScope.hideLoading();
 
