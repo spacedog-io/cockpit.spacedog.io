@@ -4,6 +4,38 @@ angular.module('spaceDogCockpit.controllers')
 
     $scope.size = 5;
 
+    var session = new SpaceDog.Data.PaginationSession(0, $scope.size)
+
+    var search = function(){
+
+        var payload = {}
+
+        if ($scope.mainStore.q) {
+            payload = {
+                "query": {
+                    "match" : {
+                        "_all" : $scope.mainStore.q
+                    }
+                }
+            };
+        }
+
+        SpaceDog.Data.search({
+            "type":$state.params.type,
+            "payload":payload
+        }, function(err, data){
+            if (err!=null) {
+                $scope.error = err
+            } else {
+                $scope.data = data;
+            }
+            $scope.$apply()
+        }, session)
+
+    }
+
+    search()
+
     $scope.$watch('mainStore.schemas', function(n,o){
         if (n && n.length > 0) {
             $scope.schema = $scope.mainStore.schemas.filter(function(s){
@@ -11,20 +43,17 @@ angular.module('spaceDogCockpit.controllers')
             })[0]
         }
     })
+
+    $scope.$on('should_update_q', search)
     
-    var session = new SpaceDog.Data.PaginationSession(0, $scope.size)
-window._session = session;
 
     $scope.from = function(){
-        console.log("from !" + session.getFrom())
         return session.getFrom()
     }
     $scope.isNextPageAvailable = function(){
-        console.log("isNextPageAvailable !" + session.isNextPageAvailable())
         return session.isNextPageAvailable()
     }
     $scope.isPrevPageAvailable = function(){
-        console.log("isPrevPageAvailable !" + session.isPrevPageAvailable())
         return session.isPrevPageAvailable()
     }
 
@@ -38,22 +67,6 @@ window._session = session;
         search()
     }
 
-    var search = function(){
-
-        SpaceDog.Data.search({
-            "type":$state.params.type
-        }, function(err, data){
-            if (err!=null) {
-                $scope.error = err
-            } else {
-                $scope.data = data;
-            }
-            $scope.$apply()
-        }, session)
-
-    }
-
-    search()
 
 
 })

@@ -92,12 +92,18 @@
 
     a#logout {
       position:absolute;
-      bottom: 5px;
-      left: 5px;
+      bottom: 0px;
+      left: 0px;
+      right:0px;
+      background-color: #262644;
+      padding:1rem;
       font-size:80%;
       cursor: pointer;
+      text-align:center;
+
       &:hover {
         color:white;
+        text-decoration:underline;
       }
     }
   }

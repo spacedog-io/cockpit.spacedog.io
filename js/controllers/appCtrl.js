@@ -6,7 +6,8 @@ angular.module('spaceDogCockpit.controllers')
 
     $scope.mainStore = {
         schemas:[],
-        backendId:SpaceDog.getBackendId()
+        backendId:SpaceDog.getBackendId(),
+        q:null
     }
     
     $scope.logout = function() {
