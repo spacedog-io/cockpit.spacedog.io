@@ -69,6 +69,12 @@
         a:before {
           content:". ";
         }
+
+        li.creation {
+          a:before {
+            content:"+ ";
+          }
+        }
       }
 
       li {
@@ -87,6 +93,7 @@
             background-color:rgba(255,255,255,0.1);
           }
         }
+
       }
     }
 
@@ -116,13 +123,19 @@
     background-color:white;
     min-height:100vh;
     color:#030f40;
+    position:relative;
 
     .head {
-      margin:-2rem;
       padding:2rem;
       padding-right:0;
-      height:9rem;
+      height:7rem;
+      top:0;
       background-color:lighten(#333,80%);
+      position:fixed;
+      left:200px;
+      right:0;
+      z-index: 20;
+      border-bottom:1px solid lighten(#333,70%);
 
       h1 {
         display:inline-block;
@@ -156,6 +169,7 @@
 
     .subhead {
       margin:-2rem;
+      margin-top:5rem;
       padding:2rem;
       margin-bottom:1rem;
       background-color:lighten(#333,70%); 
@@ -175,4 +189,14 @@
 
   }
 
+}
+
+#feedback {
+  position:fixed;
+  top:0px;
+  left:0;
+  z-index:99999;
+  background-color:$brand-primary;
+  color:darken($brand-primary, 20%);
+  padding:1rem;
 }

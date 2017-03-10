@@ -5,14 +5,13 @@ angular.module('spaceDogCockpit.directives')
         template : '<div ng-include="\'/templates/spaceSchema.html\'"></div>',
         restrict: 'E',
         scope: {
-            schema:'='
+            schema:'=',
+            mini:'='
         },
         link: function (scope, element, attrs) {
             scope.Utils = {
                 keys : Object.keys
             }
-
-            console.log("scope.schema", scope.schema)
         }
     }
 })

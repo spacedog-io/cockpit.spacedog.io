@@ -1,0 +1,64 @@
+<div class="head">
+  
+  <h1>create a new schema</h1>
+
+</div>
+
+<div class="subhead"></div>
+
+<p class="bg-danger" ng-if="error">{{error}}</p>
+
+
+<form class="schema-creation-form" ng-submit="submit()">
+
+  <div class="form-group">
+    <label for="type">name</label>
+    <input type="text" class="form-control input-lg" id="type" ng-model="schemaData.type" />
+  </div>
+
+  <h2>acl</h2>
+
+  <ul class="acls">
+    <li ng-repeat="acl in schemaData.acl track by $index">
+      <div class="form-group">
+        <label>role name</label>
+        <input type="text" class="form-control" ng-model="acl.role" />
+      </div>
+      <div class="content">
+        
+        <div class="checkbox" ng-repeat="dp in acl.content">
+          <label>
+            <input type="checkbox" ng-model="dp.checked">{{dp.name}}
+          </label>
+        </div>
+      </div>
+      <a ng-click="removeAcl($index)">Remove this acl</a>
+    </li>
+    <li>
+      <a ng-click="addAcl()">Add acl</a>
+    </li>
+  </ul>
+
+  <h2>fields</h2>
+
+  <ul class="fields">
+    <li ng-repeat="field in schemaData.fields track by $index">
+      <div class="form-group">
+        <label>field name</label>
+        <input type="text" class="form-control" ng-model="field.name" />
+      </div>
+      <div class="form-group">
+        <label>field type</label>
+        <select ng-model="field.type" ng-options="dt as dt.name for dt in dataTypes"></select>
+      </div>
+      <a ng-click="removeField($index)">Remove this field</a>
+    </li>
+
+    <li>
+      <a ng-click="addField()">Add field</a>
+    </li>
+  </ul>
+
+  <input type="submit"/>
+
+</form>

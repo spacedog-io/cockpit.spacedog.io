@@ -1,3 +1,7 @@
+[Check the development cockpit, and administrate your backend like a spacedog.](https://spacepitdev.www.spacedog.io/#/)
+
+(on utilise https://app.prodpad.com/feedback/ pour le form de feedback)
+
 Development
 ===
 
@@ -12,3 +16,8 @@ Backend id : spacepitdev
 Username : spacewouf
 
 Password : SPACew0uf?
+
+Sinon, utilisez votre propre backend :D
+
+**Deploy to dev : ** `make`
+

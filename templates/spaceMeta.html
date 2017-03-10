@@ -1,0 +1,15 @@
+
+<ul class="meta">
+  <li>
+    {{ metaData.id }}
+  </li>
+  <li>
+    {{ metaData.createdAt | date : 'dd/MM/yyyy HH:mm' }} {{ metaData.createdBy }}
+  </li>
+  <li ng-if="metaData.createdAt != metaData.updatedAt">
+    {{ metaData.updatedAt | date : 'dd/MM/yyyy HH:mm' }} {{ metaData.updatedBy }}
+  </li>
+  <li>
+    {{ metaData.version }}
+  </li>
+</ul>

@@ -2,7 +2,7 @@ angular.module('spaceDogCockpit.controllers')
 
 .controller('SchemaCtrl', function($scope, $rootScope, $state) {
 
-    $scope.size = 5;
+    $scope.size = 20;
 
     var session = new SpaceDog.Data.PaginationSession(0, $scope.size)
 

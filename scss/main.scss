@@ -18,10 +18,12 @@ $state-danger-bg:#bf4747;
 @import "components/mixins";
 @import "components/list";
 @import "components/spaceSchema";
+@import "components/spaceMeta";
 
 @import "pages/app";
 @import "pages/body";
 @import "pages/page_login";
+@import "pages/page_schema_creation";
 
 // FIX chelou
 .row:after {

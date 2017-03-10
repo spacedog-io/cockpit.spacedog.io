@@ -17,8 +17,12 @@ gulp.task('webserver', function() {
   gulp.src('./')
     .pipe(webserver({
       livereload: true,
+      livereload:{
+        port:35739
+      },
       directoryListing: false,
-      open: true
+      open: true,
+      port:8282
     }));
 });
 

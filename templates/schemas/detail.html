@@ -21,14 +21,13 @@
 </div>
 
 <div class="subhead">
-    <space-schema schema="schema"></space-schema>
+    <space-schema schema="schema" mini="true"></space-schema>
 </div>
 
 <p class="bg-danger" ng-if="error">{{error}}</p>
 
-
 <ul class="list">
     <li ng-repeat="item in data.results">
-        <space-tuple tuple="item"></space-tuple>
+        <space-tuple top-level="true" schema-definition="schema" tuple="item"></space-tuple>
     </li>
 </ul>

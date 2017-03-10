@@ -1,10 +1,13 @@
 <div class="spacedog-tuple">
+<!-- {{items}} -->
+  
+    <space-meta ng-if="topLevel === true" meta-data="tuple['meta']"></space-meta>
 
     <div class="spacedog-tuple-item"
-         ng-repeat="prop in Utils.keys(tuple)"
+         ng-repeat="prop in items"
          ng-if="prop != '$$hashKey'">
 
-         <space-field field="prop" value="tuple[prop]"></space-field>
+      <space-field field="prop" value="tuple[prop]" schema-definition="getFieldDefinition(prop)"></space-field>
 
     </div>
         

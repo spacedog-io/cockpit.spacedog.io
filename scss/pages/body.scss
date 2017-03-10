@@ -5,3 +5,7 @@ body {
   color:white;
   font-family: 'Ubuntu', sans-serif;
 }
+
+[disabled] {
+    pointer-events: none !important;
+}

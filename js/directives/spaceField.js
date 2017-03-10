@@ -6,10 +6,11 @@ angular.module('spaceDogCockpit.directives')
         restrict: 'E',
         scope: {
             field:'=',
-            value:'='
+            value:'=',
+            schemaDefinition:"="
         },
         link: function (scope, element, attrs) {
-            console.log("spaceField ")
+            // console.log("spaceField schemaDefinition=",scope.schemaDefinition)
         }
     }
 })

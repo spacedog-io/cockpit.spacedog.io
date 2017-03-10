@@ -21,8 +21,10 @@ angular.module('spaceDogCockpit.controllers')
 
     } else {
 
+      // TODO : check localstorage for saved q, and url, if present
+      // $state.go('app.schema', {"type":"request"})
       // $state.go('app.schemas')
-      $state.go('app.schema', {"type":"agency"})
+      $state.go('app.schemaCreation')
 
       $rootScope.hideLoading();
 

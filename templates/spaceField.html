@@ -1,14 +1,31 @@
 <div class="spacedog-field">
-    
     <div class="field">{{field}}</div>
 
-    <div class="value" ng-switch on="field">
 
-        <div ng-switch-when="meta">
-            <space-tuple tuple="value"></space-tuple>
+    <div class="value" ng-if="schemaDefinition._array">
+        <li ng-repeat="item in value">
+            <space-tuple schema-definition="schema" tuple="item"></space-tuple>
+        </li>
+    </div>
+
+    <div ng-if="!schemaDefinition._array" ng-switch on="schemaDefinition._type">
+
+        <div ng-switch-when="boolean" class="value editable" >
+            <div ng-if="value == true">✓</div>
+            <div ng-if="value != true">✘</div>
         </div>
 
-        <div ng-switch-default>{{value}}</div>
+        <div ng-switch-when="string" class="value editable" >
+            {{value}}
+        </div>
+
+        <div ng-switch-when="object">
+            <space-tuple schema-definition="schemaDefinition" tuple="value"></space-tuple>
+        </div>
+
+        <div ng-switch-default class="value" >
+            {{value}}
+        </div>
 
     </div>
 </div>

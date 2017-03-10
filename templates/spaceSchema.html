@@ -1,11 +1,11 @@
-<div class="spacedog-schema">
+<div class="spacedog-schema" ng-class="{ mini:mini }">
     
-    <h4>Type</h4>
-    <div class="type">
+    <h4 ng-if="!mini">Type</h4>
+    <div ng-if="!mini" class="type">
         <a ui-sref="app.schema({type:schema.type})">{{schema.type}}</a>
     </div>
 
-    <h4>Fields</h4>
+    <h4 ng-if="!mini">Fields</h4>
     <ul>
         <li ng-repeat="field in schema.fields">
             <div class="fieldname">{{field.fieldname}}</div>
@@ -21,3 +21,17 @@
     </ul>
 
 </div>
+<!-- 
+<div class="spacedog-schema" ng-if="mini">
+    <div class="spacedog-schema-container" ng-repeat="field in schema.fields">
+        <div class="fieldname">{{field.fieldname}}</div>
+
+        <ul>
+            <li ng-repeat="prop in Utils.keys(field.fielddata)">
+                <div class="prop-key">{{prop}}</div>
+                <div class="prop-value">{{field.fielddata[prop]}}</div>
+            </li>
+        </ul>
+
+    </div>
+</div> -->

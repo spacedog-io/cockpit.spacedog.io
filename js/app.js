@@ -14,6 +14,10 @@ angular.module('spaceDogCockpit', [
         moment.locale('fr');
     })
 
+    .run(function() {
+        // TODO : on exit, save q, and url, if preset
+    })
+
     .config(function ($stateProvider, $urlRouterProvider) {
 
         $stateProvider
@@ -45,6 +49,11 @@ angular.module('spaceDogCockpit', [
                 url: '/schema/:type',
                 templateUrl: 'templates/schemas/detail.html',
                 controller: 'SchemaCtrl'
+            })
+            .state('app.schemaCreation', {
+                url: '/schemaCreation',
+                templateUrl: 'templates/schemas/creation.html',
+                controller: 'SchemaCreationCtrl'
             })
 
 
